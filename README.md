@@ -1,6 +1,6 @@
 # TopicModels
 
-Description: using {maptpx} to perform rapid topic modeling in R.
+Description: using {maptpx} to perform fast topic modeling in R.
 =================================================================
 
 Files:
