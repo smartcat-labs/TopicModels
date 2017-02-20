@@ -38,30 +38,21 @@ tdMatrix <- as.matrix(tdMatrix)
 # - ensure reproducibility:
 set.seed(10071974)
 
-<<<<<<< HEAD
 t1 <- Sys.time()
 
 # - and run on K = seq(2,20) semantic topics:
 topicModel <- maptpx::topics(tdMatrix, K = seq(2,20),
                              shape = NULL,
-=======
-# - and run on K = seq(2,20) semantic topics:
-topicModel <- maptpx::topics(tdMatrix, K = seq(2,20),
-                             shape = NULL,
                              initopics = NULL,
->>>>>>> dc43d4a825bd2d19e0d610ab573ab1d6aff92eed
                              tol = 0.01,
                              bf = T, kill = 0,
                              ord = TRUE,
                              verb = 2)
 
-<<<<<<< HEAD
 t2 <- Sys.time()
 # - time diff:
 t2-t1
 
-=======
->>>>>>> dc43d4a825bd2d19e0d610ab573ab1d6aff92eed
 ### ------------------------------------------------------------
 ### --- Part 3.B: Optimal Topic Model Inspection + Visualization
 ### ------------------------------------------------------------
@@ -90,10 +81,7 @@ topTerms <- as.data.frame(apply(topicModel$theta, 2, function(x) {
   names(sort(x, decreasing = T))[1:30]
   }))
 colnames(topTerms) <- paste0("Topic_", seq(1,topicModel$K))
-<<<<<<< HEAD
 write.csv(topTerms, "topicLeadTerms.csv")
-=======
->>>>>>> dc43d4a825bd2d19e0d610ab573ab1d6aff92eed
 
 topicNames <- c('MathStats', 'Development', 'IoT', 'Cloud',
                 'AI', 'Social Media', 'Big Data', 'Databases',
@@ -133,11 +121,7 @@ termStruct1 <- apply(termCorrelation, 1, which.max)
 termStruct <- data.frame(outgoing = rownames(termCorrelation),
                         incoming1 = rownames(termCorrelation)[termStruct1])
 termTopics <- unname(apply(topicModel$theta, 1, which.max))
-<<<<<<< HEAD
 selectTopic <- 5
-=======
-selectTopic <- 7
->>>>>>> dc43d4a825bd2d19e0d610ab573ab1d6aff92eed
 termNet <- graph.data.frame(termStruct[which(termTopics == selectTopic), ], 
                            directed = T)
 V(termNet)$size <- degree(termNet)*1.25
@@ -153,11 +137,8 @@ plot(termNet,
      vertex.label.font = 1,
      vertex.label.family = "sans",
      vertex.label.cex = .55,
-<<<<<<< HEAD
      vertex.label.dist = .25,
-=======
      vertex.label.dist = .45,
->>>>>>> dc43d4a825bd2d19e0d610ab573ab1d6aff92eed
      edge.curved = 0.5,
      margin = c(rep(0,4)))
 
